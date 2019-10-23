@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/recycleview2">
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent">
+        <Button
+                android:text="刪除"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/btn_delete" android:layout_weight="1"
+                android:background="#ff3a44" android:textColor="#F8E9E5E5"/>
+        <Button
+                android:text="隱藏"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/btn_hide" android:layout_weight="1"
+                android:background="#555555" android:textColor="#F8E9E5E5"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

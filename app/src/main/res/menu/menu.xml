@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_add_chats" android:icon="@drawable/ic_speech_bubble" app:showAsAction="always"
+          android:title="新增對話"/>
+    <item android:id="@+id/menu_search" android:icon="@drawable/ic_search_black_24dp" app:showAsAction="always"
+          android:title="搜尋"/>
+    <item android:title="編輯訊息" android:id="@+id/menu_edit_messages"/>
+    <item android:title="聊天室排序" android:id="@+id/menu_sort"/>
+    <item android:title="全部標記為已讀" android:id="@+id/menu_finished"/>
+</menu>

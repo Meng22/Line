@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LineChat</string>
+    <string name="title_friend">friend</string>
+    <string name="title_chat">chat</string>
+    <string name="title_posts">posts</string>
+    <string name="title_today">today</string>
+    <string name="title_pocket">pocket</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_edit_list">EditList</string>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/nav_friend"
+            android:title="好友" android:icon="@drawable/ic_friend_24dp"/>
+
+    <item
+            android:id="@+id/nav_chat"
+            android:title="聊天" android:icon="@drawable/ic_chat_black_24dp"/>
+
+    <item
+            android:id="@+id/nav_posts"
+            android:title="貼文串" android:icon="@drawable/ic_time_24dp"/>
+
+    <item
+            android:id="@+id/nav_today"
+            android:title="TODAY" android:icon="@drawable/ic_note_add_black_24dp"/>
+
+    <item
+            android:id="@+id/nav_pocket"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="錢包"/>
+</menu>

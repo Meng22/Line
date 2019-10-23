@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+              android:id="@+id/frameLayout" tools:layout_editor_absoluteY="0dp"
+              tools:layout_editor_absoluteX="-203dp"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#fcfcfc"
+            app:itemHorizontalTranslationEnabled="false"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu" app:itemTextColor="@color/ic_navigation_bottom">
+        <!--<TextView-->
+                <!--android:text="999+"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:background="@drawable/ic_circle_red"-->
+                <!--android:layout_height="wrap_content" android:id="@+id/tv_unread" android:textColor="#F8FFFFFF"-->
+                <!--android:padding="4px" android:layout_marginLeft="330px" android:textSize="10sp"-->
+        <!--/>-->
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
