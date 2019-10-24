@@ -5,15 +5,9 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.activity_chat.recycleview1
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_chat.*
-import kotlinx.android.synthetic.main.item_view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -26,21 +20,25 @@ import kotlinx.android.synthetic.main.item_view.*
  *
  */
 class ChatFragment : Fragment() {
+    private val myAdapter = MyAdapter(itemList)
 
-    private val MyAdapter = MyAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_chat, container, false)
         setHasOptionsMenu(true)  //重要！告訴 FragmentActivity 這個 Fragment 有另外的 optionsMenu
-
         return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         recycleview1.layoutManager = LinearLayoutManager(this.context)
-        recycleview1.adapter = MyAdapter
+        recycleview1.adapter = myAdapter
 
         super.onActivityCreated(savedInstanceState)
+    }
+
+    override fun onResume() {   //更新fragment畫面
+        myAdapter.notifyDataSetChanged()
+        super.onResume()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -51,7 +49,7 @@ class ChatFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId ){
             R.id.menu_search -> {
-                //待補.進階搜尋功能
+                //待補.搜尋功能
             }
             R.id.menu_edit_messages -> {
                 val intent = Intent(this.context, EditActivity::class.java)
@@ -72,10 +70,14 @@ class ChatFragment : Fragment() {
                 AlertDialog.Builder(this.context)
                     .setMessage("要將所有訊息標為已讀嗎？")
                     .setPositiveButton("標為已讀"){_,_ ->
-                        for (i in 0 until itemList.size){
-                            itemList.set(i, item(itemList[i].image, itemList[i].title, itemList[i].content, itemList[i].time, "0"))
-                        }
-                        MyAdapter.update(itemList)
+                        val list= itemList.map { it.copy(num = 0) }
+                        myAdapter.update(list)
+//                        val act = activity
+//                        if (act is MainActivity){
+//                            act.unread_num(list)      //安全的作法
+//                        }
+                        (activity as MainActivity).unread_num(list)    //!!
+
                     }
                     .setNegativeButton("取消", null)
                     .show()
@@ -84,12 +86,13 @@ class ChatFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
     fun sort(){
-        itemList.sortByDescending { it.time.substring(0,2) }
-        MyAdapter.update(itemList)
+        itemList.sortByDescending { it.time }
+        myAdapter.notifyDataSetChanged()
+
     }
     fun unread(){
         itemList.sortByDescending { it.num }
-        MyAdapter.update(itemList)
+        myAdapter.notifyDataSetChanged()
     }
 
 }

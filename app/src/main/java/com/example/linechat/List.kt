@@ -1,14 +1,13 @@
 package com.example.linechat
 
-data class item(
+data class Item(
     val image: Int,
     val title: String,
     val content: String,
     val time: String,
-    val num: String,
+    var num: Int,
     var isSelected: Boolean = false
 )
 
-
-        var itemList=mutableListOf<item>()
+var itemList=mutableListOf<Item>() //不要亂放
 
