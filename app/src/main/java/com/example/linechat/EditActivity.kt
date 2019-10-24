@@ -26,7 +26,6 @@ class EditActivity : AppCompatActivity() {
         recycleview2.layoutManager = LinearLayoutManager(this)
         recycleview2.adapter  = editAdapter
         editAdapter.update(itemList)
-
         editAdapter.setToSelect(object : EditAdapter.ItemClickListener{   //建立物件
             override fun toSelect(item : Item) {
                 item.isSelected = !item.isSelected
