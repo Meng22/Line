@@ -1,9 +1,11 @@
 package com.example.linechat
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.badge.BadgeDrawable
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
@@ -45,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         }
         false
     }
+    lateinit var navView: BottomNavigationView
+    private var sums: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,30 +62,36 @@ class MainActivity : AppCompatActivity() {
             itemList.add(items)
         }
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)   //底部導覽列
-        navView.setOnNavigationItemSelectedListener(listener)
-
+        unread_num(itemList)
+        navView = findViewById(R.id.nav_view)
+//        val navView: BottomNavigationView = findViewById(R.id.nav_view)   //綁定底部導覽列xml
+        navView.setOnNavigationItemSelectedListener(listener)               //監聽底部導覽欄位的變化
+        showBadge(sums)
     }
 
     override fun onStart() {
         unread_num(itemList)
+        showBadge(sums)
         super.onStart()
     }
 
+    fun showBadge(num: Int){
+        navView.showBadge(R.id.nav_chat).apply {
+            if (num > 999) number = 999
+            else if (num == 0) navView.removeBadge(R.id.nav_chat)
+            else number = num
+        }
+    }
+
+    fun removeBadge(){
+        navView.removeBadge(R.id.nav_chat)
+        }
+
     fun unread_num(newList: List<Item>){
         val numList = newList.map { it.num }
-        var sums = 0
+        sums = 0
         for (i in 0 until numList.size){
             sums = sums + numList[i]
-        }
-        if (sums > 999){
-            tv_unread.text = "999+"
-        }else if(sums == 0){
-            tv_unread.visibility = View.INVISIBLE
-        }
-        else{
-            tv_unread.visibility = View.VISIBLE
-            tv_unread.text = "$sums"
         }
     }
 

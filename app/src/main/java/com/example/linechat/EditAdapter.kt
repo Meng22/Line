@@ -12,13 +12,14 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class EditAdapter: RecyclerView.Adapter<EditAdapter.ViewHolder>(){
     val itemList:MutableList<Item> = ArrayList()
-    private var listener : ItemClickListener? = null    //這個變數有interface裡的方法可以使用
+    var listener : ItemClickListener? = null    //設一變數，有interface裡的方法可以使用
 
     interface ItemClickListener{
-        fun toSelect(item: Item)   //interface裡面的function都沒有被實作 x{}
+        fun toSelect(item: Item) //interface = 任何人都可以拿到，但interface裡面的function還沒有被實作 x{}
     }
+
     fun setToSelect(listener : ItemClickListener){
-        this.listener = listener         //指定(名稱不一樣可略)
+        this.listener = listener         //指定(名稱不一樣可略)，傳進來的參數(listener)會指給裡面的listener
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)

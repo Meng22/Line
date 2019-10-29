@@ -9,5 +9,5 @@ data class Item(
     var isSelected: Boolean = false
 )
 
-var itemList=mutableListOf<Item>() //不要亂放
+var itemList=mutableListOf<Item>()
 

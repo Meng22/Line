@@ -1,5 +1,6 @@
 package com.example.linechat
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -20,12 +21,11 @@ class EditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit)
         title = "編輯聊天列表"
 
-//        val listToEdit = intent.getStringExtra("listToEdit")
-//        val itemList = Gson().fromJson(listToEdit, List<item>::class.java)
 
         recycleview2.layoutManager = LinearLayoutManager(this)
         recycleview2.adapter  = editAdapter
         editAdapter.update(itemList)
+
         editAdapter.setToSelect(object : EditAdapter.ItemClickListener{   //建立物件
             override fun toSelect(item : Item) {
                 item.isSelected = !item.isSelected
@@ -44,6 +44,7 @@ class EditActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        setResult(Activity.RESULT_OK)   //resultcode
         onBackPressed()
         return super.onSupportNavigateUp()
     }
