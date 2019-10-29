@@ -13,7 +13,7 @@ class SearchActivity : AppCompatActivity() {
     private val recordAdapter = RecordAdapter()
     lateinit var sharedPreferences : SharedPreferences
     private var keyword = ""
-    private var recordList = ArrayList<String>()
+    private var recordList = ArrayList<Recordword>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,15 +31,15 @@ class SearchActivity : AppCompatActivity() {
 
             if (ed_search.text.isNullOrEmpty()){
                 getRecord()        //刷新歷史紀錄
+
                 inner_constraint.visibility = View.VISIBLE
                 rv_searchResult.visibility = View.GONE
                 tv_unfound.visibility = View.GONE
 
             }else {
-                //儲存部分還沒做好qq
                 val checkList = ArrayList<String>()
                 recordList.forEach {
-                    if ("$keyword" == it) checkList.add("true") }
+                    if ("$keyword" == it.value) checkList.add("true") }
 
                 if (checkList.isEmpty())
                 saveRecord(keyword)
@@ -69,15 +69,26 @@ class SearchActivity : AppCompatActivity() {
         val keyList = sharedPreferences.all.keys.sorted()
         recordList.clear()
         for (key in keyList){
-            recordList.add(sharedPreferences.getString(key, "")!!)   //弄出全部的record字串(陣列)
-        }
+            val record = Recordword(key, sharedPreferences.getString(key, "")!!)
+            recordList.add(record)                                    //弄出全部的record字串(陣列)
+        }                                                            //取資料時要包好
         showRecord(recordList)
     }
 
-    fun showRecord(recordlist: ArrayList<String>){
+    fun showRecord(recordlist: ArrayList<Recordword>){
         rv_recentSearch.layoutManager = LinearLayoutManager(this)
         rv_recentSearch.adapter = recordAdapter
+        recordAdapter.setToClick(object: RecordAdapter.ItemClickListener{
+            override fun toDelete(record: Recordword) {
+                deleteRecord(record)
+            }
+        })
         recordAdapter.update(recordlist)
+    }
+    fun deleteRecord(keyword: Recordword){
+        val editor = sharedPreferences.edit()
+        editor.remove(keyword.key).apply()
+        getRecord()
     }
 
     fun saveRecord(keyword: String){

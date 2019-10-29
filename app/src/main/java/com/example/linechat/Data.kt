@@ -9,5 +9,10 @@ data class Item(
     var isSelected: Boolean = false
 )
 
+data class Recordword(
+    val key: String,
+    val value: String
+)
+
 var itemList=mutableListOf<Item>()
 
