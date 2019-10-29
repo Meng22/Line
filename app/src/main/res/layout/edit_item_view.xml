@@ -9,7 +9,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:id="@+id/img_icon"
+            android:id="@+id/search_icon"
             android:src="@drawable/icon_1"
             android:layout_margin="5dp"/>
     <LinearLayout
@@ -19,13 +19,13 @@
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/tv_title" android:textSize="24sp"
+                android:layout_height="wrap_content" android:id="@+id/search_title" android:textSize="24sp"
                 android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
                 android:textColor="#F30A0707" android:layout_marginTop="5dp"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/tv_content"
+                android:layout_height="wrap_content" android:id="@+id/search_message"
                 android:textSize="18sp" android:textColor="#E8666060"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="8dp"

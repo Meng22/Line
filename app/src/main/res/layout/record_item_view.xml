@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content" android:padding="4dp"
+                                                   android:layout_margin="3dp">
+
+    <TextView
+            android:text="搜尋紀錄"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/tv_record" android:textSize="16sp"
+            tools:layout_weight="8" android:ems="1"
+            app:layout_constraintEnd_toStartOf="@+id/delete_record"
+            app:layout_constraintTop_toTopOf="@+id/delete_record" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="3dp" android:layout_marginStart="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/delete_record" android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp" android:textColor="#000003"/>
+    <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp" android:id="@+id/delete_record"
+            android:src="@drawable/ic_wrong"
+            android:background="#00ECCCCC"
+            android:layout_marginTop="3dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

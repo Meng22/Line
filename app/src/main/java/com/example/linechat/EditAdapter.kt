@@ -4,10 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
 class EditAdapter: RecyclerView.Adapter<EditAdapter.ViewHolder>(){
@@ -36,9 +34,9 @@ class EditAdapter: RecyclerView.Adapter<EditAdapter.ViewHolder>(){
     }
 
     inner class ViewHolder(v: View): RecyclerView.ViewHolder(v){
-        val img_icon = v.findViewById<CircleImageView>(R.id.img_icon)
-        val tv_title = v.findViewById<TextView>(R.id.tv_title)
-        val tv_content = v.findViewById<TextView>(R.id.tv_content)
+        val img_icon = v.findViewById<CircleImageView>(R.id.search_icon)
+        val tv_title = v.findViewById<TextView>(R.id.search_title)
+        val tv_content = v.findViewById<TextView>(R.id.search_message)
         val tv_time = v.findViewById<TextView>(R.id.tv_time)
         val chk_delete = v.findViewById<CheckBox>(R.id.chk_delete)
 

@@ -3,14 +3,9 @@ package com.example.linechat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MyAdapter(val itemList:MutableList<Item>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
@@ -27,9 +22,9 @@ class MyAdapter(val itemList:MutableList<Item>) : RecyclerView.Adapter<MyAdapter
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val img_icon = v.findViewById<CircleImageView>(R.id.img_icon)
-        val tv_title = v.findViewById<TextView>(R.id.tv_title)
-        val tv_content = v.findViewById<TextView>(R.id.tv_content)
+        val img_icon = v.findViewById<CircleImageView>(R.id.search_icon)
+        val tv_title = v.findViewById<TextView>(R.id.search_title)
+        val tv_content = v.findViewById<TextView>(R.id.search_message)
         val tv_time = v.findViewById<TextView>(R.id.tv_time)
         val tv_number = v.findViewById<TextView>(R.id.tv_number)
 
