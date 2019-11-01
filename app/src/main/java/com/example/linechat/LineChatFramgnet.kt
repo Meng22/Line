@@ -6,20 +6,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_chat.recycleview1
-
+import kotlinx.android.synthetic.main.activity_chat.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class ChatFragment : Fragment() {
+class LineChatFramgnet : Fragment() {
     private val myAdapter = MyAdapter(itemList)
 
     override fun onCreateView(
@@ -31,7 +31,7 @@ class ChatFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         recycleview1.layoutManager = LinearLayoutManager(this.context)
-        recycleview1.adapter = myAdapter   //
+        recycleview1.adapter = myAdapter
 
         super.onActivityCreated(savedInstanceState)
     }
@@ -47,10 +47,11 @@ class ChatFragment : Fragment() {
             R.id.menu_search -> {
                 val intent = Intent(this.context, SearchActivity::class.java)
                 startActivity(intent)
+
             }
             R.id.menu_edit_messages -> {
-                val intent = Intent(this.context, EditActivity::class.java)
-                startActivityForResult(intent, 0)
+                val intentEdit = Intent(this.context, EditActivity::class.java)
+                startActivityForResult(intentEdit, 0)
             }
             R.id.menu_sort -> {
                 val list_sort = arrayOf("收到的時間", "未讀訊息", "我的最愛")

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
-    val searchList:MutableList<Item> = ArrayList()
+    val searchList = ArrayList<Item>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -21,7 +21,7 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(itemList[position])
+        holder.bind(searchList[position])
     }
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val search_icon = view.findViewById<ImageView>(R.id.search_icon)
@@ -37,7 +37,6 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>
         }
     }
     fun update(newList: List<Item>){
-        searchList.clear()
         searchList.addAll(newList)
         notifyDataSetChanged()
     }

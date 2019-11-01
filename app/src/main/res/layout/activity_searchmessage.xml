@@ -3,7 +3,7 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+                                                   android:layout_height="match_parent" android:padding="2dp">
 
     <LinearLayout
             android:orientation="horizontal"
@@ -14,13 +14,14 @@
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
-                android:id="@+id/btn_leaveSearch" android:layout_marginRight="40dp"/>
+                android:id="@+id/btn_leaveSearch" android:layout_marginRight="34dp"/>
         <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="62dp"
                 android:inputType="textPersonName"
-                android:ems="11"
+                android:ems="13"
                 android:id="@+id/ed_search"
+                android:drawableRight="@drawable/ic_wrong"
                 android:theme="@style/MyEditText"
                 android:textSize="19sp"
                 android:layout_marginRight="8dp" android:hint="搜尋"/>
@@ -28,160 +29,14 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_search"
-                android:id="@+id/img_search" android:layout_marginTop="8dp"/>
+                android:id="@+id/img_search" android:layout_marginTop="15dp"/>
     </LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-            android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_constraintTop_toBottomOf="@id/linearLayout2" android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" android:id="@+id/inner_constraint"
-            android:visibility="visible">
+            android:layout_height="0dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/searchFragmentLayout"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-                android:text="推薦關鍵字"
-                android:typeface="monospace"
-                android:layout_width="wrap_content"
-                android:textColor="#222222"
-                android:layout_height="wrap_content" android:id="@+id/tv_keyword"
-                android:textSize="18sp" android:visibility="visible"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"/>
-        <TextView
-                android:text="NBA"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_1" android:textSize="15sp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_keyword" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="36dp" android:layout_marginStart="36dp"/>
-        <TextView
-                android:text="世界大賽"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_4" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_3"
-                android:layout_marginStart="25dp" android:layout_marginLeft="25dp"
-                app:layout_constraintTop_toTopOf="@+id/key_3"/>
-        <TextView
-                android:text="黑豹旗"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_8" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_7"
-                android:layout_marginLeft="25dp" android:layout_marginStart="25dp"
-                app:layout_constraintTop_toTopOf="@+id/key_7"/>
-        <TextView
-                android:text="12強"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_2" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_1"
-                android:layout_marginStart="25dp" android:layout_marginLeft="25dp"
-                app:layout_constraintTop_toTopOf="@+id/key_1"/>
-        <TextView
-                android:text="余苑綺"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_6" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_5"
-                android:layout_marginLeft="25dp" android:layout_marginStart="25dp"
-                app:layout_constraintTop_toTopOf="@+id/key_5"/>
-        <TextView
-                android:text="江祖平"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_9" android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="36dp" android:layout_marginStart="36dp" android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@+id/key_5"/>
-        <TextView
-                android:text="川普"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_5" android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="36dp" android:layout_marginStart="36dp" android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@+id/key_1"/>
-        <TextView
-                android:text="李月桃"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_7" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_6"
-                android:layout_marginLeft="25dp" android:layout_marginStart="25dp"
-                app:layout_constraintTop_toTopOf="@+id/key_6"/>
-        <TextView
-                android:text="小三通"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_10" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_9"
-                android:layout_marginLeft="25dp" android:layout_marginStart="25dp" android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@+id/key_6"/>
-        <TextView
-                android:text="星宇航空"
-                android:background="@drawable/ic_oval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#222222"
-                android:id="@+id/key_3" android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/key_2"
-                android:layout_marginStart="25dp" android:layout_marginLeft="25dp"
-                app:layout_constraintTop_toTopOf="@+id/key_2"/>
-        <TextView
-                android:text="最近搜尋"
-                android:typeface="monospace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/tv_recentSearch"
-                android:textSize="18sp" android:visibility="visible"
-                android:textColor="#222222"
-                app:layout_constraintStart_toStartOf="@+id/tv_keyword" android:layout_marginTop="160dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_keyword"/>
-        <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:id="@+id/rv_recentSearch"
-                android:visibility="visible" android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_recentSearch"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_recentSearch"
-                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-            android:text="找不到任何結果"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/tv_unfound"
-            android:textSize="20sp" android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="parent" android:layout_marginLeft="130dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="70dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_marginTop="60dp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:visibility="gone" android:layout_height="fill_parent"
-            android:id="@+id/rv_searchResult"/>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

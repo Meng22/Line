@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_chat -> {
                 title = "聊天"
                 val transaction = manager.beginTransaction()
-                transaction.replace(R.id.frameLayout, ChatFragment()).commit()
+                transaction.replace(R.id.frameLayout, LineChatFramgnet()).commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.nav_posts -> {
