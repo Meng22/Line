@@ -15,13 +15,12 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
                 android:id="@+id/btn_leaveSearch" android:layout_marginRight="34dp"/>
-        <EditText
+        <com.example.linechat.CustomEditText
                 android:layout_width="wrap_content"
                 android:layout_height="62dp"
                 android:inputType="textPersonName"
                 android:ems="13"
                 android:id="@+id/ed_search"
-                android:drawableRight="@drawable/ic_wrong"
                 android:theme="@style/MyEditText"
                 android:textSize="19sp"
                 android:layout_marginRight="8dp" android:hint="搜尋"/>

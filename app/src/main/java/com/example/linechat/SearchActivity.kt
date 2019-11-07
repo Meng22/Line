@@ -82,6 +82,7 @@ class SearchActivity : AppCompatActivity() {
 
 
     fun saveRecord(keyword: String) {
+
         val sharedPreferences = getSharedPreferences("saveSearch", Activity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         var i = 0
